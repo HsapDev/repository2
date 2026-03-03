@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rewind 2 Anos 💜</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #d8b4f8;
+      color: #3b0764;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      padding: 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 12px;
+      border: none;
+      background: #a855f7;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover { opacity: 0.9; }
+
+    .hidden { display: none; }
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: #ede9fe;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: #7e22ce;
+      transition: width 0.4s;
+    }
+
+    .album {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .photo {
+      background: #f3e8ff;
+      height: 120px;
+      border-radius: 12px;
+    }
+
+    .flashcard {
+      background: #f3e8ff;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 120px;
+    }
+
+    .music-player {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      padding: 8px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="card" id="quiz">
+      <h2>Antes de continuar 💜</h2>
+      <p>Quando foi nosso primeiro beijo?</p>
+      <button onclick="answer(0,1)">08/01/2024</button>
+      <button onclick="answer(0,2)">19/04/2024</button>
+      <button onclick="answer(0,3)">03/03/2024</button>
+
+      <p>Para onde vamos morar</p>
+      <button onclick="answer(1,1)">Canadá</button>
+      <button onclick="answer(1,2)">Minas Gerais</button>
+      <button onclick="answer(1,3)">Italia</button>
+
+      <p>Qual parte de voce eu mais gosto?</p>
+      <button onclick="answer(2,1)">Peito</button>
+      <button onclick="answer(2,2)">Bunda</button>
+      <button onclick="answer(2,3)">Seu suvaco</button>
+    </div>
+
+    <!-- MÚSICA -->
+    <div class="card hidden" id="music">
+      <h2>Escolha nossa trilha 🎶</h2>
+      <button onclick="setMusic('musicas/take me back.mpeg')">Take  me back</button>
+      <button onclick="setMusic('musicas/die with.mp4')">Die with a Smile</button>
+      <button onclick="setMusic('musicas/talking.mpeg')">Talking to the Moon</button>
+      <button onclick="nextStep()">Próximo</button>
+    </div>
+
+    <!-- ÁLBUM -->
+    <div class="card hidden" id="album">
+      <h2>Nossa trajetória 📸</h2>
+          <p>Dois anos construindo memórias incríveis juntos 💕</p>
+
+      <div class="album">
+        <img src="imagem/fotos01.jpeg" class="photo">
+        <img src="imagem/imagem02.jpeg" class="photo">
+        <img src="imagem/imagem03.jpeg" class="photo">
+        <img src="imagem/imagem04.jpeg" class="photo">
+        <img src="imagem/imagem05.jpeg" class="photo">
+        <img src="imagem/imagem06.jpeg" class="photo">
+        <img src="imagem/imagem07.jpeg" class="photo">
+        <img src="imagem/imagem08.jpeg" class="photo">
+        <img src="imagem/imagem09.jpeg" class="photo">
+        <img src="imagem/imagem10.jpeg" class="photo">
+        <img src="imagem/imagem11.jpeg" class="photo">
+        <img src="imagem/imagem12.jpeg" class="photo">
+        <img src="imagem/imagem13.jpeg" class="photo">
+        <img src="imagem/imagem14.jpeg" class="photo">
+        <img src="imagem/imagem15.jpeg" class="photo">
+        <img src="imagem/imagem16.jpeg" class="photo">
+        <img src="imagem/imagem17.jpeg" class="photo">
+        <img src="imagem/imagem18.jpeg" class="photo">
+        <img src="imagem/imagem19.jpeg" class="photo">
+        <img src="imagem/imagem20.jpeg" class="photo">
+        <img src="imagem/imagem21.jpeg" class="photo">
+        <img src="imagem/imagem22.jpeg" class="photo">
+        <img src="imagem/imagem23.jpeg" class="photo">
+        <img src="imagem/imagem24.jpeg" class="photo">
+        <img src="imagem/imagem25.jpeg" class="photo">
+        <img src="imagem/imagem26.jpeg" class="photo">
+        <img src="imagem/imagem27.jpeg" class="photo">
+        <img src="imagem/imagem28.jpeg" class="photo">
+        <img src="imagem/imagem29.jpeg" class="photo">
+        <img src="imagem/imagem30.jpeg" class="photo">
+        <img src="imagem/imagem31.jpeg" class="photo">
+        <img src="imagem/imagem32.jpeg" class="photo">
+        <img src="imagem/imagem33.jpeg" class="photo">
+        <img src="imagem/imagem34.jpeg" class="photo">
+        <img src="imagem/imagem35.jpeg" class="photo">
+        <img src="imagem/imagem36.jpeg" class="photo">
+        <img src="imagem/imagem37.jpeg" class="photo">
+        <img src="imagem/imagem38.jpeg" class="photo">
+        <img src="imagem/imagem39.jpeg" class="photo">
+        <img src="imagem/imagem40.jpeg" class="photo">
+        <img src="imagem/imagem41.jpeg" class="photo">
+        <img src="imagem/imagem42.jpeg" class="photo">
+      </div>
+      <button onclick="nextStep()">Próximo</button>
+    </div>
+
+    <!-- MEDOS -->
+    <div class="card hidden" id="medos">
+      <h2>Medos que enfrentei por nós 💪</h2>
+      <label><input type="checkbox" onchange="checkMedos()"> Comer na sua casa</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Te incomodar</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> MEdo do futuri</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Medo de não ser suficiente</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Medo de nao valer a pena</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Medo do amanha</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Medo de falhar</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Medo de nao conseguir oque eu quero</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Morrer sozinho</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Te perder</label><br>
+      <label><input type="checkbox" onchange="checkMedos()"> Ser raso</label><br>
+    </div>
+
+    <!-- METAS -->
+    <div class="card hidden" id="metas">
+      <h2>Metas para o futuro ✨</h2>
+      <ul>
+        <li>Viajar juntos</li>
+        <li>Comprar nossa casa</li>
+        <li>Te conquistar todos os dias</li>
+        <li>Vencer os meus problemas pessoais</li>
+        <li>Ser minha companheira todos os dias</li>
+        <li>Do for the first time...</li>
+        <li>viajar de carro </li>
+        <li>cozinhar muito juntinhos</li>
+      </ul>
+      <button onclick="nextStep()">Aceita esses desafios comigo?</button>
+    </div>
+
+    <!-- FLASHCARDS -->
+    <div class="card hidden" id="juras">
+      <h2>Minhas juras 💌</h2>
+      <div class="flashcard" id="flashcard">Prometo cuidar de você todos os dias.</div>
+      
+      <button onclick="nextCard()">Próxima</button>
+      <button onclick="nextStep()">Última surpresa</button>
+    </div>
+
+    <!-- VALE -->
+    <div class="card hidden" id="vale">
+      <h2>Vale Presente 💝</h2>
+      <p>Este vale dá direito a um dia especial planejado por mim.</p>
+      <p>Sobre nosso aniversario</p>
+      <p><b>Validade: Para sempre.</b></p>
+    </div>
+
+  </div>
+
+  <div class="music-player hidden" id="player">
+    <audio id="audio" controls style="width:100%"></audio>
+  </div>
+
+  <script>
+    let currentStep = 0;
+    let answers = [null,null,null];
+    const correct = [1,1,1];
+    const sections = ["quiz","music","album","medos","metas","juras","vale"];
+    const flashcards = [
+      "Prometo crescer com você.",
+      "Prometo te apoiar em tudo.",
+      "Prometo te amar todos os dias da minha vida.",
+      "Sempre te respeitar",
+      "Muitos bom dias",
+      "Te dar muitos beijos", 
+      "Muitos filmes suspeitos",
+      "Sempre deixar vc me ajudar",
+      "Sempre tomar as decisoes comigo",
+      "Sempre desejar voce",
+      "Sempre irei lutar por voce",
+      "Sempre cozinharei pra voce",
+      "Farei e ses dos mais gays aos mais dificies",
+      "Te amarei por quem voce é"
+    ];
+    let cardIndex = 0;
+
+    function updateProgress() {
+      document.getElementById("progress").style.width = (currentStep/6)*100 + "%";
+    }
+
+    function answer(questionIndex, selectedValue) {
+  answers[questionIndex] = selectedValue;
+
+  // Verifica se todas foram respondidas
+  if (answers.every(a => a !== null)) {
+
+    // Verifica se todas estão corretas
+    const allCorrect = answers.every((a, i) => a === correct[i]);
+
+    if (allCorrect) {
+      alert("Você acertou tudo 💜✨");
+      nextStep();
+    } else {
+      alert("Hmmmm 🤨 tenta de novo amor 💕");
+      answers = [null, null, null];
+    }
+  }
+}
+
+    function nextStep() {
+      document.getElementById(sections[currentStep]).classList.add("hidden");
+      currentStep++;
+      document.getElementById(sections[currentStep]).classList.remove("hidden");
+      updateProgress();
+    }
+
+    function setMusic(src) {
+      const audio = document.getElementById("audio");
+      audio.src = src;
+      audio.play();
+      document.getElementById("player").classList.remove("hidden");
+    }
+
+    function checkMedos() {
+      const checks = document.querySelectorAll("#medos input");
+      if([...checks].every(c => c.checked)){
+        nextStep();
+      }
+    }
+
+    function nextCard() {
+      cardIndex = (cardIndex + 1) % flashcards.length;
+      document.getElementById("flashcard").innerText = flashcards[cardIndex];
+    }
+  </script>
+</body>
+</html>
